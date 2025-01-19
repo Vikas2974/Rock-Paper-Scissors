@@ -15,17 +15,15 @@ function getComputerChoice() {
   return choices[randomNumber];
 }
 
-// similar to convertcase but just takes lowercase and replaces with titlecase
+
 function convertCase(anythingIwant) {
   if (anythingIwant === 'paper') return 'Paper';
   if (anythingIwant === 'scissors') return 'Scissors';
   return 'Rock';
 }
 
-// Winning Condition - this handles what happens when the user clicks one of the choices where the value is them passed through as a parameter
 function win(user, computer) {
   userScore++;
-  // console.log('user score is ' + userScore + ' ' + user);
   userScore_span.innerHTML = userScore;
   const userName = ' (user)'.fontsize(3).sup();
   const compName = ' (comp)'.fontsize(3).sup();
@@ -35,10 +33,8 @@ function win(user, computer) {
   setTimeout(() => roundStatus.classList.remove('winningStyles'), 300);
 }
 
-// Losing Condition - this handles what happens when the user clicks one of the choices where the value is them passed through as a parameter
 function loses(user, computer) {
   computerScore++;
-  // console.log('computer score is ' + computerScore + ' ' + computer);
   computerScore_span.innerHTML = computerScore;
   const userName = ' (user)'.fontsize(3).sup();
   const compName = ' (comp)'.fontsize(3).sup();
@@ -47,13 +43,11 @@ function loses(user, computer) {
   roundStatus.classList.add('losingStyles');
   setTimeout(() => roundStatus.classList.remove('losingStyles'), 300);
 }
-
-// Draw Condition - this handles what happens when the user clicks one of the choices where the value is them passed through as a parameter
+ parameter
 function draw(user, computer) {
 	const userName = ' (user)'.fontsize(3).sup();
   const compName = ' (comp)'.fontsize(3).sup();
   result_div.innerHTML = `<p>It was a draw! You both chose ${convertCase(user)}</p>`;
-  // "It was a draw! You both chose " + user + " " + computer; // old js
   const roundStatus = document.getElementById(user);
   roundStatus.classList.add('drawStyles');
   setTimeout(() => roundStatus.classList.remove('drawStyles'), 300);
